@@ -173,37 +173,38 @@ if selected == 'Regresi':
         if hasyard == "Yes":
             input_hasyard_Yes = 1
             input_hasyard_No = 0
-        elif hasyard == "No":
+        else:
             input_hasyard_Yes = 0
             input_hasyard_No = 1
 
         if haspool == "Yes":
             input_haspool_Yes = 1
             input_haspool_No = 0
-        elif haspool == "No":
+        else:
             input_haspool_Yes = 0
             input_haspool_No = 1
 
         if isnewbuilt == "New":
             input_isnewbuilt_New = 1
             input_isnewbuilt_Old = 0
-        elif isnewbuilt == "No":
+        else:
             input_isnewbuilt_New = 0
             input_isnewbuilt_Old = 1
             
         if hasstromprotector == "Yes":
             input_hasstormprotector_Yes = 1
             input_hasstormprotector_No = 0
-        elif hasstromprotector == "No":
+        else:
             input_hasstormprotector_Yes = 0
             input_hasstormprotector_No = 1
 
         if hasstorage == "Yes":
             input_hasstorage_Yes = 1
             input_hasstorage_No = 0
-        elif hasstorage == "No":
+        else:
             input_hasstorage_Yes = 0
             input_hasstorage_No = 1
+
         
         input_data = np.array([input_hasyard_Yes, input_hasyard_No, input_haspool_Yes, input_haspool_No, 
                         input_isnewbuilt_New, input_isnewbuilt_Old, 
