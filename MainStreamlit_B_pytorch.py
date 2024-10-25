@@ -50,6 +50,7 @@ if selected == 'Klasifikasi':
         squaremeters = st.number_input("Square Meters", 0)
         numberofrooms = st.slider("Number of Rooms", 0, 100)
         hasyard = st.radio("Has Yard?",["Yes", "No"])
+        haspool = st.radio("Has Pool?",["Yes", "No"])
         floors = st.slider("Number of Floors", 0, 100)
         citycode = st.number_input("City Code", 0)
         citypartrange = st.slider("City Part Range", 0, 10)
