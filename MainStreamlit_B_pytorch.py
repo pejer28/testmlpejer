@@ -76,7 +76,7 @@ if selected == 'Klasifikasi':
                           squaremeters, numberofrooms, floors, citycode, citypartrange, numprevowners,
                           made, basement, attic, garage, hasguestroom]
         
-            input_data_scaled = scaler.transform
+            input_data_scaled = scaler.transform([input_data])
             input_data_selected = feature_selector.transform(input_data_scaled)
 
         if st.button("Prediksi"):
@@ -152,10 +152,10 @@ if selected == 'Regresi':
                           squaremeters, numberofrooms, floors, citycode, citypartrange, numprevowners,
                           made, basement, attic, garage, hasguestroom]
         
-            input_data_scaled = scaler.transform
+            input_data_scaled = scaler.transform([input_data])
             input_data_selected = feature_selector.transform(input_data_scaled)
 
-        if st.sidebar.button("Prediksi"):
+        if st.button("Prediksi"):
             RFR_model_predict = RFR_model.predict(input_data_selected)
             st.write(f">Prediksi Harga adalah: {RFR_model_predict[0]:.2f}")
     else:
