@@ -114,19 +114,18 @@ if selected == 'Klasifikasi':
         print(sklearn.__version__)
         if st.button("Prediksi", key="klasifikasi_prediksi"):
             GBT_model_prediction = GBT_model.predict(input_data)
-            try:
-                prediksi_kategori = int(round(float(GBT_model_prediction[0])))  # Bulatkan ke integer
-                outcome = {'Basic': 'Basic', 'Middle': 'Middle', 'Luxury': 'Luxury'}
-                if prediksi_kategori in outcome:
-                    st.write(f"Bangunan tersebut masuk ke Kategori: **{outcome[prediksi_kategori]}**")
-                else:
-                    st.error("Prediksi tidak valid atau tidak termasuk dalam kategori.")
-            except (ValueError, IndexError):
-                st.error("Prediksi tidak dapat dikonversi ke kategori yang diharapkan.")
+            # try:
+            #     prediksi_kategori = int(round(float(GBT_model_prediction[0])))  # Bulatkan ke integer
+            #     outcome = {'Basic': 'Basic', 'Middle': 'Middle', 'Luxury': 'Luxury'}
+            #     if prediksi_kategori in outcome:
+            #         st.write(f"Bangunan tersebut masuk ke Kategori: **{outcome[prediksi_kategori]}**")
+            #     else:
+            #         st.error("Prediksi tidak valid atau tidak termasuk dalam kategori.")
+            # except (ValueError, IndexError):
+            #     st.error("Prediksi tidak dapat dikonversi ke kategori yang diharapkan.")
 
-
-            
-            # st.write(f"Bangunan tersebut masuk ke Kategori: **{outcome[GBT_model_prediction[0]]}**")
+            outcome = {'Basic': 'Basic', 'Middle': 'Middle', 'Luxury': 'Luxury'}
+            st.write(f"Bangunan tersebut masuk ke Kategori: **{outcome[GBT_model_prediction[0]]}**")
 
             
 
