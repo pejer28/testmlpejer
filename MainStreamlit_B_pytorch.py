@@ -117,6 +117,11 @@ if selected == 'Klasifikasi':
             outcome = {0: 'Basic', 1: 'Middle', 2:'Luxury'}
             st.write(f"Bangunan tersebut masuk ke Kategori: **{outcome[GBT_model_prediction[0]]}**")
 
+            if GBT_model_prediction[0] in outcome:
+                st.write(f"Bangunan tersebut masuk ke Kategori: **{outcome[GBT_model_prediction[0]]}**")
+            else:
+                st.error("Prediksi tidak valid atau tidak termasuk dalam kategori.")
+
      
 
         
