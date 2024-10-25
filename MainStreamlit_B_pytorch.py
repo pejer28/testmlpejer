@@ -113,27 +113,21 @@ if selected == 'Klasifikasi':
         print(f"Jumlah fitur input_data: {input_data.shape[1]}")  # Harus 21
         print(sklearn.__version__)
         if st.button("Prediksi"):
-            GBT_model_prediction = GBT_model.predict(input_data)
-            st.write("Hasil Prediksi Asli dari Model:", GBT_model_prediction)
-            st.write("Tipe Data Hasil Prediksi:", type(GBT_model_prediction[0]))
-                
-            try:
-                # Coba konversi hasil prediksi dari string ke integer
-                prediksi_kategori = int(GBT_model_prediction[0])
-                outcome = {0: 'Basic', 1: 'Middle', 2: 'Luxury'}
-                if prediksi_kategori in outcome:
-                    st.write(f"Bangunan tersebut masuk ke Kategori: **{outcome[prediksi_kategori]}**")
-                else:
-                    st.error("Prediksi tidak valid atau tidak termasuk dalam kategori.")
-            except ValueError:
-                st.error("Prediksi tidak dapat dikonversi ke kategori yang diharapkan.")
+            if st.button("Prediksi"):
+                GBT_model_prediction = GBT_model.predict(input_data)
+                try:
+                    # Pastikan konversi prediksi ke integer
+                    prediksi_kategori = int(GBT_model_prediction[0])
+                    outcome = {0: 'Basic', 1: 'Middle', 2: 'Luxury'}
+                    
+                    # Pastikan hasil prediksi masuk kategori
+                    if prediksi_kategori in outcome:
+                        st.write(f"Bangunan tersebut masuk ke Kategori: **{outcome[prediksi_kategori]}**")
+                    else:
+                        st.error("Prediksi tidak valid atau tidak termasuk dalam kategori.")
+                except (ValueError, IndexError):
+                    st.error("Prediksi tidak dapat dikonversi ke kategori yang diharapkan.")
 
-            outcome_reverse = {'Basic': 'Basic', 'Middle': 'Middle', 'Luxury': 'Luxury'}
-            prediksi_kategori = GBT_model_prediction[0]
-            if prediksi_kategori in outcome_reverse:
-                st.write(f"Bangunan tersebut masuk ke Kategori: **{outcome_reverse[prediksi_kategori]}**")
-            else:
-                st.error("Prediksi tidak termasuk dalam kategori yang valid.")
 
             
             st.write(f"Bangunan tersebut masuk ke Kategori: **{outcome[GBT_model_prediction[0]]}**")
