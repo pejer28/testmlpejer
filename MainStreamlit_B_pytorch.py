@@ -116,7 +116,7 @@ if selected == 'Klasifikasi':
             GBT_model_prediction = GBT_model.predict(input_data)
             try:
                 prediksi_kategori = int(round(float(GBT_model_prediction[0])))  # Bulatkan ke integer
-                outcome = {0: 'Basic', 1: 'Middle', 2: 'Luxury'}
+                outcome = {'Basic': 'Basic', 'Middle': 'Middle', 'Luxury': 'Luxury'}
                 if prediksi_kategori in outcome:
                     st.write(f"Bangunan tersebut masuk ke Kategori: **{outcome[prediksi_kategori]}**")
                 else:
