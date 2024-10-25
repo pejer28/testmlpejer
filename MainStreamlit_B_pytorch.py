@@ -108,12 +108,12 @@ if selected == 'Klasifikasi':
                         squaremeters, numberofrooms, floors, citycode, citypartrange, numprevowners,
                         made, basement, attic, garage, hasguestroom]).reshape(1, -1)
         
-        # input_data_scaled = scaler.transform([input_data])
-        # input_data_selected = feature_selector.transform(input_data_scaled)
+        input_data_scaled = scaler.transform([input_data])
+        input_data_selected = feature_selector.transform(input_data_scaled)
         print(f"Jumlah fitur input_data: {input_data.shape[1]}")  # Harus 21
         print(sklearn.__version__)
         if st.button("Prediksi"):
-            GBT_model_prediction = GBT_model.predict(input_data)
+            GBT_model_prediction = GBT_model.predict(input_data_selected)
             outcome = {0: 'Basic', 1: 'Middle', 2:'Luxury'}
             st.write(f"Bangunan tersebut masuk ke Kategori: **{outcome[GBT_model_prediction[0]]}**")
 
