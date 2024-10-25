@@ -35,7 +35,7 @@ if selected == 'Klasifikasi':
     else:
         st.error("Model BestModel_CLF_GBT_pytorch tidak ditemukan, silahkan cek file model di direktori...")
 
-   model_path = 'BestModel_CLF_GBT_pytorch.pkl'
+    model_path = 'BestModel_CLF_GBT_pytorch.pkl'
 
     if os.path.exists(model_path):
         with open(model_path, 'rb') as f:
