@@ -149,9 +149,9 @@ if selected == 'Regresi':
         with open(model_path, 'rb') as f:
             loaded_model = pickle.load(f)
 
-            scaler = loaded_model[0]
-            feature_selector = loaded_model[1]
-            RFR_model = loaded_model[2]
+        scaler = loaded_model[0]
+        feature_selector = loaded_model[1]
+        RFR_model = loaded_model[2]
 
         squaremeters = st.number_input("Square Meters", 0)
         numberofrooms = st.slider("Number of Rooms", 0, 100)
@@ -205,10 +205,11 @@ if selected == 'Regresi':
             input_hasstorage_Yes = 0
             input_hasstorage_No = 1
         
-        input_data = [input_hasyard_Yes, input_hasyard_No, input_haspool_Yes, input_haspool_No, input_isnewbuilt_New, input_isnewbuilt_Old, 
+        input_data = np.array([input_hasyard_Yes, input_hasyard_No, input_haspool_Yes, input_haspool_No, 
+                        input_isnewbuilt_New, input_isnewbuilt_Old, 
                         input_hasstormprotector_Yes, input_hasstormprotector_No, input_hasstorage_Yes, input_hasstorage_No,
                         squaremeters, numberofrooms, floors, citycode, citypartrange, numprevowners,
-                        made, basement, attic, garage, hasguestroom]
+                        made, basement, attic, garage, hasguestroom]).reshape(1, -1)
         
         input_data_scaled = scaler.transform([input_data])
         input_data_selected = feature_selector.transform(input_data_scaled)
