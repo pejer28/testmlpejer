@@ -112,21 +112,17 @@ if selected == 'Klasifikasi':
         # input_data_selected = feature_selector.transform(input_data_scaled)
         print(f"Jumlah fitur input_data: {input_data.shape[1]}")  # Harus 21
         print(sklearn.__version__)
-        if st.button("Prediksi"):
-            if st.button("Prediksi"):
-                GBT_model_prediction = GBT_model.predict(input_data)
-                try:
-                    # Pastikan konversi prediksi ke integer
-                    prediksi_kategori = int(GBT_model_prediction[0])
-                    outcome = {0: 'Basic', 1: 'Middle', 2: 'Luxury'}
-                    
-                    # Pastikan hasil prediksi masuk kategori
-                    if prediksi_kategori in outcome:
-                        st.write(f"Bangunan tersebut masuk ke Kategori: **{outcome[prediksi_kategori]}**")
-                    else:
-                        st.error("Prediksi tidak valid atau tidak termasuk dalam kategori.")
-                except (ValueError, IndexError):
-                    st.error("Prediksi tidak dapat dikonversi ke kategori yang diharapkan.")
+        if st.button("Prediksi", key="klasifikasi_prediksi"):
+            GBT_model_prediction = GBT_model.predict(input_data)
+            try:
+                prediksi_kategori = int(GBT_model_prediction[0])
+                outcome = {0: 'Basic', 1: 'Middle', 2: 'Luxury'}
+                if prediksi_kategori in outcome:
+                    st.write(f"Bangunan tersebut masuk ke Kategori: **{outcome[prediksi_kategori]}**")
+                else:
+                    st.error("Prediksi tidak valid atau tidak termasuk dalam kategori.")
+            except (ValueError, IndexError):
+                st.error("Prediksi tidak dapat dikonversi ke kategori yang diharapkan.")
 
 
             
