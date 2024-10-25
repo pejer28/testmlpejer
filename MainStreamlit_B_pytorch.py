@@ -99,15 +99,9 @@ if selected == 'Klasifikasi':
             input_hasstorage_Yes = 0
             input_hasstorage_No = 1
 
-        if hasguest == "Yes":
-            input_hasguest_Yes = 1
-            input_hasguest_No = 0
-        elif hasguest == "No":
-            input_hasguest_Yes = 0
-            input_hasguest_No = 1
         
         input_data = np.array([input_hasyard_Yes, input_hasyard_No, input_haspool_Yes, input_haspool_No, input_isnewbuilt_New, input_isnewbuilt_Old, 
-                        input_hasstormprotector_Yes, input_hasstormprotector_No, input_hasstorage_Yes, input_hasstorage_No, input_hasguest_Yes, input_hasguest_No,
+                        input_hasstormprotector_Yes, input_hasstormprotector_No, input_hasstorage_Yes, input_hasstorage_No,
                         squaremeters, numberofrooms, floors, citycode, citypartrange, numprevowners,
                         made, basement, attic, garage, hasguestroom]).reshape(1, -1)
         
