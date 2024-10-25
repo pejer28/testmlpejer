@@ -93,10 +93,10 @@ if selected == 'Klasifikasi':
             input_data_scaled = scaler.transform([input_data])
             input_data_selected = feature_selector.transform(input_data_scaled)
 
-        if st.button("Prediksi"):
-            GBT_model_prediction = GBT_model.predict(input_data_selected)
-            outcome = {0: 'Basic', 1: 'Middle', 2:'Luxury'}
-            st.write(f"Bangunan tersebut masuk ke Kategori: **{outcome[GBT_model_prediction[0]]}**")
+            if st.button("Prediksi"):
+                GBT_model_prediction = GBT_model.predict(input_data_selected)
+                outcome = {0: 'Basic', 1: 'Middle', 2:'Luxury'}
+                st.write(f"Bangunan tersebut masuk ke Kategori: **{outcome[GBT_model_prediction[0]]}**")
     else:
         st.error("Model BestModel_CLF_GBT_pytorch tidak ditemukan, silahkan cek file model di direktori...")
 
@@ -169,8 +169,8 @@ if selected == 'Regresi':
             input_data_scaled = scaler.transform([input_data])
             input_data_selected = feature_selector.transform(input_data_scaled)
 
-        if st.button("Prediksi"):
-            RFR_model_predict = RFR_model.predict(input_data_selected)
-            st.write(f">Prediksi Harga adalah: {RFR_model_predict[0]:.2f}")
+            if st.button("Prediksi"):
+                RFR_model_predict = RFR_model.predict(input_data_selected)
+                st.write(f">Prediksi Harga adalah: {RFR_model_predict[0]:.2f}")
     else:
         st.error("Model BestModel_REG_RFR_pytorch tidak ditemukan, silahkan cek file model di direktori...")
