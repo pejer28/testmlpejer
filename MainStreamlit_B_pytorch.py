@@ -5,7 +5,7 @@ import os
 from streamlit_option_menu import option_menu
 
 
-model_path = 'BestModel_CLF_GBT_pytorch.pkl'
+model_path = os.path.join(os.getcwd(), 'testmlpejer', 'BestModel_CLF_GBT_pytorch.pkl')
 
 # Cek apakah file ada dan bisa dibaca
 if os.path.exists(model_path):
