@@ -4,6 +4,8 @@ import pickle
 import os
 import numpy as np
 from streamlit_option_menu import option_menu
+import sklearn
+print(sklearn.__version__)
 
 
 # model_path = 'BestModel_CLF_GBT_pytorch.pkl'
