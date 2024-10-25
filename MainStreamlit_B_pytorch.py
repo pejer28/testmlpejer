@@ -94,7 +94,7 @@ if selected == 'Klasifikasi':
             input_data_selected = feature_selector.transform(input_data_scaled)
 
         if st.button("Prediksi"):
-            GBT_model_prediction = GBT_model.predict(input_data)
+            GBT_model_prediction = GBT_model.predict(input_data_selected)
             outcome = {0: 'Basic', 1: 'Middle', 2:'Luxury'}
             st.write(f"Bangunan tersebut masuk ke Kategori: **{outcome[GBT_model_prediction[0]]}**")
     else:
