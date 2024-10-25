@@ -5,7 +5,7 @@ import os
 import numpy as np
 from streamlit_option_menu import option_menu
 import sklearn
-print(sklearn.__version__)
+
 
 
 # model_path = 'BestModel_CLF_GBT_pytorch.pkl'
@@ -110,6 +110,7 @@ if selected == 'Klasifikasi':
         # input_data_scaled = scaler.transform([input_data])
         # input_data_selected = feature_selector.transform(input_data_scaled)
         print(f"Jumlah fitur input_data: {input_data.shape[1]}")  # Harus 21
+        print(sklearn.__version__)
         if st.button("Prediksi"):
             GBT_model_prediction = GBT_model.predict(input_data)
             outcome = {0: 'Basic', 1: 'Middle', 2:'Luxury'}
