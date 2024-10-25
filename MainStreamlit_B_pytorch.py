@@ -30,6 +30,10 @@ if selected == 'Klasifikasi':
     file = st.file_uploader("Masukkan File", type = ["csv", "txt"])
     if file is not None:
         input_data = pd.read_csv(file)
+        st.write("<h3 style='text-align: center; color: #0073e6;'>Data yang diupload :</h3>", unsafe_allow_html=True)
+        # st.dataframe(input_data)
+
+        
 
         model_path = 'BestModel_CLF_GBT_pytorch.pkl'
 
