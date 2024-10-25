@@ -189,7 +189,7 @@ if selected == 'Regresi':
             input_hasstorage_Yes = 0
             input_hasstorage_No = 1
         
-        input_data = [input_hasyard_Yes, input_hasyard_No, input_isnewbuilt_New, input_isnewbuilt_Old, 
+        input_data = [input_hasyard_Yes, input_hasyard_No, input_haspool_Yes, input_haspool_No, input_isnewbuilt_New, input_isnewbuilt_Old, 
                         input_hasstormprotector_Yes, input_hasstormprotector_No, input_hasstorage_Yes, input_hasstorage_No,
                         squaremeters, numberofrooms, floors, citycode, citypartrange, numprevowners,
                         made, basement, attic, garage, hasguestroom]
