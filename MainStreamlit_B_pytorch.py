@@ -126,7 +126,7 @@ if selected == 'Klasifikasi':
 
 
             
-            st.write(f"Bangunan tersebut masuk ke Kategori: **{outcome[GBT_model_prediction[0]]}**")
+            # st.write(f"Bangunan tersebut masuk ke Kategori: **{outcome[GBT_model_prediction[0]]}**")
 
             
 
