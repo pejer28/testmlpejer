@@ -37,9 +37,12 @@ if selected == 'Klasifikasi':
             with open(model_path, 'rb') as f:
                 loaded_model = pickle.load(f)
 
-            scaler = loaded_model[0]
-            feature_selector = loaded_model[1]
-            GBT_model = loaded_model[2]
+            # scaler = loaded_model[0]
+            # feature_selector = loaded_model[1]
+            # GBT_model = loaded_model[2]
+            scaler = loaded_model.best_estimator_.named_steps['scaler']  # contoh jika scaler di pipeline
+            feature_selector = loaded_model.best_estimator_.named_steps['feature_selector']
+            GBT_model = loaded_model.best_estimator_  # model terbaik
 
             squaremeters = st.number_input("Square Meters", 0)
             numberofrooms = st.slider("Number of Rooms", 0, 100)
