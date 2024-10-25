@@ -39,10 +39,8 @@ if selected == 'Klasifikasi':
 
             # scaler = loaded_model[0]
             # feature_selector = loaded_model[1]
-            # GBT_model = loaded_model[2]
-            scaler = loaded_model.best_estimator_.named_steps['scaler']  # contoh jika scaler di pipeline
-            feature_selector = loaded_model.best_estimator_.named_steps['feature_selector']
-            GBT_model = loaded_model.best_estimator_  # model terbaik
+            GBT_model = loaded_model
+           
 
             squaremeters = st.number_input("Square Meters", 0)
             numberofrooms = st.slider("Number of Rooms", 0, 100)
@@ -93,11 +91,11 @@ if selected == 'Klasifikasi':
                           squaremeters, numberofrooms, floors, citycode, citypartrange, numprevowners,
                           made, basement, attic, garage, hasguestroom]
         
-            input_data_scaled = scaler.transform([input_data])
-            input_data_selected = feature_selector.transform(input_data_scaled)
+            # input_data_scaled = scaler.transform([input_data])
+            # input_data_selected = feature_selector.transform(input_data_scaled)
 
             if st.button("Prediksi"):
-                GBT_model_prediction = GBT_model.predict(input_data_selected)
+                GBT_model_prediction = GBT_model.predict(input_data)
                 outcome = {0: 'Basic', 1: 'Middle', 2:'Luxury'}
                 st.write(f"Bangunan tersebut masuk ke Kategori: **{outcome[GBT_model_prediction[0]]}**")
     else:
