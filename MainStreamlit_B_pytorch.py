@@ -113,8 +113,9 @@ if selected == 'Klasifikasi':
         print(f"Jumlah fitur input_data: {input_data.shape[1]}")  # Harus 21
         print(sklearn.__version__)
         if st.button("Prediksi"):
-            
             GBT_model_prediction = GBT_model.predict(input_data)
+            GBT_model_prediction = int(round(GBT_model_prediction[0]))  # Pembulatan
+            st.write(f"Hasil Prediksi (dibulatkan): {GBT_model_prediction}")
             outcome = {0: 'Basic', 1: 'Middle', 2:'Luxury'}
             if GBT_model_prediction[0] in outcome:
                 st.write(f"Bangunan tersebut masuk ke Kategori: **{outcome[GBT_model_prediction[0]]}**")
