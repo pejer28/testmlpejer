@@ -44,8 +44,8 @@ if selected == 'Klasifikasi':
         with open(model_path, 'rb') as f:
             loaded_model = pickle.load(f)
 
-        # scaler = loaded_model[0]
-        # feature_selector = loaded_model[1]
+        scaler = loaded_model[0]
+        feature_selector = loaded_model[1]
         GBT_model = loaded_model
            
 
