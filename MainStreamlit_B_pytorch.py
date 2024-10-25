@@ -117,11 +117,25 @@ if selected == 'Klasifikasi':
             st.write("Hasil Prediksi Asli dari Model:", GBT_model_prediction)
             st.write("Tipe Data Hasil Prediksi:", type(GBT_model_prediction[0]))
                 
-            outcome = {0: 'Basic', 1: 'Middle', 2:'Luxury'}
-            if GBT_model_prediction[0] in outcome:
-                st.write(f"Bangunan tersebut masuk ke Kategori: **{outcome[GBT_model_prediction[0]]}**")
+            try:
+                # Coba konversi hasil prediksi dari string ke integer
+                prediksi_kategori = int(GBT_model_prediction[0])
+                outcome = {0: 'Basic', 1: 'Middle', 2: 'Luxury'}
+                if prediksi_kategori in outcome:
+                    st.write(f"Bangunan tersebut masuk ke Kategori: **{outcome[prediksi_kategori]}**")
+                else:
+                    st.error("Prediksi tidak valid atau tidak termasuk dalam kategori.")
+            except ValueError:
+                st.error("Prediksi tidak dapat dikonversi ke kategori yang diharapkan.")
+
+            outcome_reverse = {'Basic': 'Basic', 'Middle': 'Middle', 'Luxury': 'Luxury'}
+            prediksi_kategori = GBT_model_prediction[0]
+            if prediksi_kategori in outcome_reverse:
+                st.write(f"Bangunan tersebut masuk ke Kategori: **{outcome_reverse[prediksi_kategori]}**")
             else:
-                st.error("Prediksi tidak valid atau tidak termasuk dalam kategori.")
+                st.error("Prediksi tidak termasuk dalam kategori yang valid.")
+
+            
             st.write(f"Bangunan tersebut masuk ke Kategori: **{outcome[GBT_model_prediction[0]]}**")
 
             
