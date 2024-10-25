@@ -4,6 +4,20 @@ import pickle
 import os
 from streamlit_option_menu import option_menu
 
+
+model_path = 'BestModel_CLF_GBT_pytorch.pkl'
+
+# Cek apakah file ada dan bisa dibaca
+if os.path.exists(model_path):
+    st.write("Model file ditemukan.")
+    if os.access(model_path, os.R_OK):
+        st.write("File model memiliki izin baca.")
+    else:
+        st.write("File model **tidak memiliki izin baca**.")
+else:
+    st.write("Model file **tidak ditemukan**.")
+
+
 with st.sidebar:
     selected = option_menu('Desain Steamlit UTS ML 24/25',
                            ['Klasifikasi',
